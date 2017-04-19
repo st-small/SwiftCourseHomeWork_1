@@ -4,27 +4,32 @@ import UIKit
 // Задание 1
 
 func integerValues(A: Int, B: Int, N: Int) {
-    
-    A & B & N <= 0 ? print("Одно или более значение меньше 0") : print("Все значения не меньше 0")
-    
-    for integer in A...B {
-        if integer == 7 {
-            print(integer)
-        } else if integer > 7 {
+    var array = [Int]()
+    if A > 0, B > 0, N > 0 {
+        for integer in A...B {
+            var count: Int = 0
             var num: Int = integer
             while num > 0 {
                 let digit = num % 10
                 if digit > 0 && digit == 7 {
-                    print(integer)
+                    count += 1
                 }
                 num = num / 10
             }
-            
+            if count == N {
+                array.append(integer)
+                print(integer)
+            }
         }
-
+        if array.count == 0 {
+            print("Требуемых значений не найдено")
+        }
     }
-    
-    
 }
 
-integerValues(A: 1, B: 500, N: 2)
+// Проверка работы Задания 1
+integerValues(A: 1, B: 5555, N: 3)
+
+// Задание 2
+
+
