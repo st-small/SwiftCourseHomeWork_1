@@ -68,3 +68,24 @@ func luckyNumber(A: Double) {
 // Проверка работы задания 3
 luckyNumber(A: 22.4)
 
+// Задание 4
+func factorial(A: Int) {
+    
+    guard A > 0 else {
+        print("Значение А не является положительным")
+        return
+    }
+    var result: Int = 1
+    
+    for i in 1 ..< (A + 1) {
+        
+        result *= i
+        
+        print(NSString(format:"%3i   %12i", i, result))
+    }
+}
+
+// Проверка работы задания 4
+factorial(A: 12)
+
+
