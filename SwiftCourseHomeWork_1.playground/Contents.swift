@@ -91,20 +91,32 @@ factorial(A: 12)
 // Задание 5
 func calculateFunc(A: Double) {
     
-    //|0.5 при X<=-0.5 | X+1 при -0.5<X<=0 Y = < | X*X-1при 0<X<=1 |X-1 при X>1 
-    
     switch A {
-    case A..<= 0:
-        print("Y = 0.5")
-    default:
-        return
+    case _ where (A <= -0.5): print("Y = 0.5")
+    case _ where (A > -0.5 && A <= 0): print("Y = \(A+1)")
+    case _ where (A > 0 && A <= 1): print("Y = \(A*A-1)")
+    case _ where (A > 1): print("Y = \(A-1)")
+    default: return
     }
 }
 
 // Проверка работы задания 5
-calculateFunc(A: 100)
+calculateFunc(A: -0.7)
+calculateFunc(A: -0.3)
+calculateFunc(A: 0.3)
+calculateFunc(A: 1.5)
 
 // Задание 6
+func calculateFunc2(A: Double) {
+
+    switch A {
+    case _ where (A <= 0.5): print("Y2 = \(sin(Double.pi/2))")
+    case _ where (A > 0.5): print("Y2 = \(sin((A-1)*Double.pi/2))")
+    default: return
+    }
+}
 
 // Проверка работы задания 6
+calculateFunc2(A: 0.1)
+calculateFunc2(A: 5)
 
