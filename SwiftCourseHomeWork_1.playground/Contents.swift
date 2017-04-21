@@ -197,35 +197,95 @@ findNumberFromRight(N: 145593, K: 2)
 
 // Задание 10
 func fibo(A: Int) -> Int{
+    var fb = 0
     if A == 0 {
-        return 0
+        fb = 0
     } else if (A > 0 && A <= 2) {
-        return 1
+        fb = 1
     } else {
-        return (fibo(A: A-1) + fibo(A: A-2))
+        fb = (fibo(A: A-1) + fibo(A: A-2))
     }
+    return fb
 }
 
 // Проверка работы задания 10
 fibo(A: 10)
 
 // Задание 11
-
+func completeArrayWithCount(A: Int) -> Array<Int> {
+    var array: [Int] = []
+    for _ in 0...(A - 1) {
+        array.append(Int(arc4random_uniform(1000)))
+    }
+    print("Массив состоит из \(array.count) элементов и включает следующий порядок значений: \(array)")
+    return array
+}
 
 // Проверка работы задания 11
-
+completeArrayWithCount(A: 10)
 
 // Задание 12
-
+func find2MinElementsInArrayWithCount(A: Int) {
+    let array: [Int] = completeArrayWithCount(A: A)
+    var min1 = array[0]
+    var min2 = 0
+    print("Массив состоит из \(array.count) элементов и включает следующий порядок значений: \(array).\nНайдем 2 минимальные значения среди его элементов")
+    
+    for item in array {
+        if item < min1 {
+            min1 = item
+        }
+    }
+    if array[0] == min1 {
+        min2 = array[1]
+    } else {
+        min2 = array[0]
+    }
+    
+    for item in array {
+        if item > min1 && item < min2 {
+            min2 = item
+        }
+    }
+    
+    print("Самыми минимальными значениями в массиве являются \(min1) и \(min2)")
+}
 
 // Проверка работы задания 12
-
+find2MinElementsInArrayWithCount(A: 3)
 
 // Задание 13
-
+func multidimensionalArray() {
+    
+    let NumColumns = 2
+    let NumRows = 2
+    var array = Array<Array<Int>>()
+    var i: Int = 0
+    // Наполнение массива
+    for _ in 0...NumColumns {
+        var columnArray = Array<Int>()
+        for _ in 0...NumRows {
+            i+=1
+            columnArray.append(i)
+        }
+        array.append(columnArray)
+        print("column \(columnArray)")
+    }
+    
+    print("array \(array)")
+    var sum = 0
+    // Сумма значений главной диагонали
+    for i in 0...NumColumns {
+        sum += array[i][i]
+        print("\(sum)")
+    }
+    // Сумма значений ортогональной диагонали
+    
+    
+}
 
 // Проверка работы задания 13
-
+multidimensionalArray()
 
 // Задание 14
 
