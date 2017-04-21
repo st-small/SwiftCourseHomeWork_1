@@ -120,3 +120,124 @@ func calculateFunc2(A: Double) {
 calculateFunc2(A: 0.1)
 calculateFunc2(A: 5)
 
+// Задание 7
+func searchNOD(A: Int, B: Int) -> Int {
+    
+    var NOD = 0;
+    var x = A;
+    var y = B
+    
+    while x != y {
+        if x > y {
+            x = x - y
+        } else {
+            y = y - x
+        }
+    }
+    
+    NOD = x
+    return NOD
+}
+
+func fractReduction(A: Int, B: Int) {
+    
+    var x = A
+    var y = B
+    let NOD = searchNOD(A: A, B: B)
+    x = A/NOD
+    y = B/NOD
+    
+    switch y {
+    case _ where (y > 1) : print("Исходная дробь вида \(A)/\(B) приняла вид после упрощения: \(x)/\(y)")
+    case _ where (y == 1) : print("Исходная дробь вида \(A)/\(B) приняла вид целого числа после упрощения: \(x)")
+    default:
+        return
+    }
+}
+
+// Проверка работы задания 7
+fractReduction(A: 1000, B: 25)
+
+// Задание 8
+func findNumber() {
+    for i in 100...999 {
+        let a = i/100
+        let b = (i / 10 - (i / 100) * 10)
+        let c = (i - (a*100 + b*10))
+        
+        let powRes = Int(pow(Double(a), 3) + pow(Double(b), 3) + pow(Double(c), 3))//a*a*a+b*b*b+c*c*c
+        
+        if (powRes == i) {
+            print("Это число равно \(i)")
+        }
+        
+    }
+}
+
+// Проверка работы задания 8
+findNumber()
+
+// Задание 9
+func findNumberFromRight(N: Int, K: Int) {
+    var ost = 0
+    var x = N
+    var y = K
+    
+    while y > 0 {
+        ost = x % 10
+        x /= 10
+        y -= 1
+    }
+    
+    print("\(K)-ая цифра справа равна \(ost)")
+}
+
+// Проверка работы задания 9
+findNumberFromRight(N: 145593, K: 2)
+
+// Задание 10
+func fibo(A: Int) -> Int{
+    if A == 0 {
+        return 0
+    } else if (A > 0 && A <= 2) {
+        return 1
+    } else {
+        return (fibo(A: A-1) + fibo(A: A-2))
+    }
+}
+
+// Проверка работы задания 10
+fibo(A: 10)
+
+// Задание 11
+
+
+// Проверка работы задания 11
+
+
+// Задание 12
+
+
+// Проверка работы задания 12
+
+
+// Задание 13
+
+
+// Проверка работы задания 13
+
+
+// Задание 14
+
+
+// Проверка работы задания 14
+
+
+// Задание 15
+
+
+// Проверка работы задания 15
+
+
+
+
