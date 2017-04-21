@@ -88,4 +88,23 @@ func factorial(A: Int) {
 // Проверка работы задания 4
 factorial(A: 12)
 
+// Задание 5
+func calculateFunc(A: Double) {
+    
+    //|0.5 при X<=-0.5 | X+1 при -0.5<X<=0 Y = < | X*X-1при 0<X<=1 |X-1 при X>1 
+    
+    switch A {
+    case A..<= 0:
+        print("Y = 0.5")
+    default:
+        return
+    }
+}
+
+// Проверка работы задания 5
+calculateFunc(A: 100)
+
+// Задание 6
+
+// Проверка работы задания 6
 
