@@ -256,16 +256,16 @@ find2MinElementsInArrayWithCount(A: 3)
 
 // Задание 13
 func multidimensionalArray() {
-    
-    let NumColumns = 2
-    let NumRows = 2
+    let random = arc4random_uniform(20)
+    let NumColumns = Int(random)
+    let NumRows = Int(random)
     var array = Array<Array<Int>>()
     var i: Int = 0
     // Наполнение массива
     for _ in 0...NumColumns {
         var columnArray = Array<Int>()
         for _ in 0...NumRows {
-            i+=1
+            i = Int(arc4random_uniform(1000))
             columnArray.append(i)
         }
         array.append(columnArray)
@@ -274,12 +274,19 @@ func multidimensionalArray() {
     
     print("array \(array)")
     var sum = 0
+    var sum2 = 0
     // Сумма значений главной диагонали
     for i in 0...NumColumns {
         sum += array[i][i]
-        print("\(sum)")
+        //print("\(sum)")
     }
+    print("Сумма значений главной диагонали равна: \(sum)")
     // Сумма значений ортогональной диагонали
+    for i in 0...NumColumns {
+        sum2 += array[i][NumColumns-i]
+        //print("\(sum2)")
+    }
+    print("Сумма значений ортогональной диагонали равна: \(sum2)")
     
     
 }
@@ -288,10 +295,34 @@ func multidimensionalArray() {
 multidimensionalArray()
 
 // Задание 14
-
+func arrayWithElements75() {
+    var array75 = Array<Int>()
+    var max = 0
+    var value1 = 0
+    var value2 = 0
+    
+    for _ in 0...75 {
+        let random = Int(arc4random_uniform(26))-5
+        array75.append(random)
+        //print(random)
+    }
+    print(array75)
+    for i in 0..<array75.count {
+        for j in 0..<array75.count {
+            let temp = array75[i] - array75[j]
+            //print("\(array75[i]) - \(array75[j])")
+            if temp > max {
+                max = temp
+                value1 = array75[i]
+                value2 = array75[j]
+            }
+        }
+    }
+    print("Максимальной разницей элементов \(value1) и \(value2) является значение \(max)")
+}
 
 // Проверка работы задания 14
-
+arrayWithElements75()
 
 // Задание 15
 
