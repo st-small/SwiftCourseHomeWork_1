@@ -325,9 +325,34 @@ func arrayWithElements75() {
 arrayWithElements75()
 
 // Задание 15
+func NOD(A: Int, B: Int) {
+    var a = A
+    var b = B
+    var tmp = 0
+    
+    guard (a > 0 && b > 0) else {
+        print("Значения должны быть больше 0!")
+        return
+    }
+    
+    if a == b {
+        print("НОД равен \(b)")
+    } else if b > a {
+        tmp = a
+        a = b
+        b = tmp
+    }
+    
+    while a > b {
+        a = a - b
+    }
+    
+    print("НОД равен \(a)")
+}
 
 
 // Проверка работы задания 15
+NOD(A: 64, B: 48)
 
 
 
